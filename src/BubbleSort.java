@@ -27,27 +27,34 @@ public class BubbleSort {
             array[i] = Integer.parseInt(items[i]);
         }
 
-        int iterCount = 0;
+        int[] sorted = new int[array.length];
+        sorted = BubbleSort.sort(array);
 
-        for (int j=0;j<array.length - 1; j++) {
+
+        for (int i : sorted) {
+            System.out.print(i + " ");
+        }
+//        System.out.println();
+//        System.out.println(iterCount);
+    }
+
+    public static int[] sort(int[] in){
+//        int iterCount = 0;
+
+        for (int j=0;j<in.length - 1; j++) {
             boolean sorted = true;
-            for (int i = 0; i < array.length - 1 - j; i++) {
-                iterCount++;
-                if (array[i] > array[i + 1]) {
+            for (int i = 0; i < in.length - 1 - j; i++) {
+//                iterCount++;
+                if (in[i] > in[i + 1]) {
                     sorted = false;
-                    int t = array[i];
-                    array[i] = array[i + 1];
-                    array[i + 1] = t;
+                    int t = in[i];
+                    in[i] = in[i + 1];
+                    in[i + 1] = t;
                 }
             }
             if (sorted) break;
         }
-
-        for (int i : array) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-        System.out.println(iterCount);
+        return in;
     }
 
 }
